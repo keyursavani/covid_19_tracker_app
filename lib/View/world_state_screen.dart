@@ -1,5 +1,6 @@
 import 'package:covid_19_tracker_app/Model/world_states_model.dart';
 import 'package:covid_19_tracker_app/Services/Utilities/states_services.dart';
+import 'package:covid_19_tracker_app/View/countries_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -111,14 +112,23 @@ class WorldStateScreenState extends State<WorldStateScreen> with TickerProviderS
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF1aa260),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: const Center(
-                              child: Text("Track Countires"),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context,
+                              MaterialPageRoute(builder: (context){
+                                return CountriesList();
+                              }));
+                    },
+
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF1aa260),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Center(
+                                child: Text("Track Countires"),
+                              ),
                             ),
                           ),
                         ],
